@@ -45,6 +45,38 @@ public class MySimpleLinkedList<T> {
 		return this.size;
 	}
 	
+	public int indexOf(T inf) {
+		if(this.first != null) {
+			Node<T> tmp = this.first;
+			for(int i =0 ; i <= this.size -1;i++) {
+				if(tmp.getInfo().equals(inf)) {
+					return i;
+				}
+				tmp = tmp.getNext();
+			}
+		}
+		return -1;
+	}
+	
+	public void insertLast(T info) {
+		Node<T> nuevoNodo = new Node<T>();
+		
+		Node<T> tmp = this.first;
+		
+		nuevoNodo.setInfo(info);
+		
+		if(this.first == null) {
+			this.first = nuevoNodo;
+		}else {
+			while(tmp.getNext() != null) {
+				tmp = tmp.getNext();
+			}
+			tmp.setNext(nuevoNodo);
+			
+		}
+		this.size ++;
+	}
+	
 	//O(n) porque debo acceder a cada nodo para consultar su info
 	@Override
 	public String toString() {
@@ -57,5 +89,6 @@ public class MySimpleLinkedList<T> {
 		}
 		return todo;
 	}
+	
 	
 }
