@@ -1,0 +1,47 @@
+package tp1;
+
+public class MySimpleLinkedList<T> {
+	
+	private Node<T> first;
+	private int size;
+	public MySimpleLinkedList() {
+		this.first = null;
+		this.size = 0;
+	}
+	
+	public void insertFront(T info) {
+		Node<T> tmp = new Node<T>(info,null);
+		tmp.setNext(this.first);
+		this.first = tmp;
+		this.size ++;
+	}
+	
+	public T extractFront() {		
+		Node<T> tmp = this.first;
+		this.first = this.first.getNext();
+		return tmp.getInfo();
+	}
+
+	public boolean isEmpty() {
+		if(this.first == null)
+			return true;
+		return false;
+	}
+	
+	public T get(int index) {
+		// TODO
+		return null;
+	}
+	
+	public int size() {
+		
+		return this.zise;
+	}
+	
+	@Override
+	public String toString() {
+		// TODO
+		return "";
+	}
+	
+}
