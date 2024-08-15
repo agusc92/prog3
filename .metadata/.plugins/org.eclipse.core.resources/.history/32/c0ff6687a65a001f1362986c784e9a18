@@ -92,8 +92,6 @@ public class MySimpleLinkedList<T> {
 	}
 	
 	public T getLast() {
-		if(this.last == null)
-			return null;
 		return this.last.getInfo();
 	}
 	//O(n) porque debo acceder a cada nodo para consultar su info

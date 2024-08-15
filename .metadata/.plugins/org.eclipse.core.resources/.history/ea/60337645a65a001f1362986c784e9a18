@@ -89,13 +89,9 @@ public class MySimpleLinkedList<T> {
 			tmp.setNext(nuevoNodo);*/
 			this.size ++;
 		}
+		
 	}
 	
-	public T getLast() {
-		if(this.last == null)
-			return null;
-		return this.last.getInfo();
-	}
 	//O(n) porque debo acceder a cada nodo para consultar su info
 	@Override
 	public String toString() {
