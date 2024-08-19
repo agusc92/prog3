@@ -96,6 +96,25 @@ public class MySimpleLinkedList<T> {
 			return null;
 		return this.last.getInfo();
 	}
+	
+	public void insertOrder(T info) {
+		
+		if(this.first == null) {
+			insertFront(info);
+		}else {
+			Node<T> nuevoNodo = new Node<T>(info,null);
+			Node<T> tmp = this.first;
+			while(tmp.getNext()!= null && tmp.getNext().esMayor(info)>0) {
+				tmp = tmp.getNext();
+			}
+			
+			tmp2.setNext(nuevoNodo);
+			
+			if(tmp != null) 
+				nuevoNodo.setNext(tmp);
+		}
+		
+	}
 	//O(n) porque debo acceder a cada nodo para consultar su info
 	@Override
 	public String toString() {
