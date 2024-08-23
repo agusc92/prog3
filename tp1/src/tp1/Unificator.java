@@ -9,19 +9,24 @@ public class Unificator<T> {
 		this.intercepcion  = new MySimpleLinkedList<T>();
 	}
 	
-	public MySimpleLinkedList unificar(MySimpleLinkedList<T> lista1 , MySimpleLinkedList<T> lista2) {
-		MySimpleLinkedList intercepcion = new MySimpleLinkedList();
+	public MySimpleLinkedList<T> unificar(MySimpleLinkedList<T> lista1 , MySimpleLinkedList<T> lista2) {
+		MySimpleLinkedList<T> intercepcion = new MySimpleLinkedList<T>();
 		this.lista1=lista1;
 		this.lista2=lista2;
+		T comparar = null;
 		
-		int idex = 0;
-		for(int i = 0 ; i< lista1.size()-1;i++) {
-			
+		for(int i = 0 ; i< lista1.size();i++) {
+			comparar = lista1.get(i);
+			for(int j = 0 ;j<lista2.size();j++) {
+				if(comparar == lista2.get(j)) {
+					intercepcion.insertOrder(comparar);
+				}
+			}
 			
 			
 		}
 		
-		return null;
+		return intercepcion;
 	}
 	
 

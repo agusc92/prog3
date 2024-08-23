@@ -7,6 +7,8 @@ public class main {
 	public static void main(String[] args) {
 		//Node<String> nodo1 = new Node<>("3",null);
 		MySimpleLinkedList<Integer> lista1 = new MySimpleLinkedList<>();
+		MySimpleLinkedList<Integer> lista2 = new MySimpleLinkedList<>();
+		Unificator uni = new Unificator();
 		lista1.insertFront(2);
 		System.out.println(lista1.getLast());
 		lista1.insertLast(5);
@@ -20,6 +22,16 @@ public class main {
 		System.out.println(lista1);
 		
 		
+		lista2.insertFront(1);
+		System.out.println(lista1.getLast());
+		lista2.insertLast(54);
+		lista2.insertLast(5);
+		
+		lista2.insertLast(8);
+		System.out.println(lista2.size());
+		lista2.insertOrder(90);
+		System.out.println(lista2.size());
+		System.out.println(uni.unificar(lista1, lista2));
 		
 	}
 
