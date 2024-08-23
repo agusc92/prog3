@@ -39,9 +39,9 @@ public class MySimpleLinkedList<T> {
 	}
 	//O(capacidad) porque debo recorrer la lista para llegar al indice
 	public T get(int index) {
-		/*if(index > this.size -1 || index<0)
+		if(index > this.size -1 || index<0)
 			return null;
-		*/
+		
 		Node<T> tmp = this.first;
 		for(int i = 0 ;i < index ; i++) {
 			tmp = tmp.getNext();
@@ -80,13 +80,6 @@ public class MySimpleLinkedList<T> {
 			nuevoNodo.setInfo(info);
 			this.last.setNext(nuevoNodo);
 			this.last = nuevoNodo;
-			/*Node<T> tmp = this.first;
-			
-			while(tmp.getNext() != null) {
-				tmp = tmp.getNext();
-			}
-			
-			tmp.setNext(nuevoNodo);*/
 			this.size ++;
 		}
 	}
@@ -100,18 +93,37 @@ public class MySimpleLinkedList<T> {
 	public void insertOrder(T info) {
 		
 		if(this.first == null) {
+			//si no hay un primer elemento, inserto info como primer elemento
 			insertFront(info);
-		}else {
+		}else  {
 			Node<T> nuevoNodo = new Node<T>(info,null);
 			Node<T> tmp = this.first;
-			while(tmp.getNext()!= null && tmp.getNext().esMayor(info)>0) {
-				tmp = tmp.getNext();
+			if(tmp.esMayor(info)>0) {
+				//si info es menor al primer elemento, inserto info como primer elemento
+				insertFront(info);
+			}else {
+				//se llego hasta aca, significa que la lista no esta vacia y que el primer elemento
+				//no es mayor que info
+				while(tmp.getNext()!= null && tmp.getNext().esMayor(info)<0) {
+					//si el siguiente del elemento actual no es null y es menor a info
+					tmp = tmp.getNext();
+				}
+				if(tmp.getNext()==null) {
+					//si se llego al final de la lista y no se econtro otro numero mas grande
+					insertLast(info);
+				}else {
+					nuevoNodo.setNext(tmp.getNext());
+					tmp.setNext(nuevoNodo);
+					this.size ++;
+				}
+				
+				
 			}
+				
 			
-			tmp2.setNext(nuevoNodo);
 			
-			if(tmp != null) 
-				nuevoNodo.setNext(tmp);
+			
+				
 		}
 		
 	}
