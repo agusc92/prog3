@@ -30,5 +30,17 @@ public class Node<T> {
 	public void setInfo(T info) {
 		this.info = info;
 	}
+	
+	public int esMayor(T valor) {
+		int info = (int)this.info;
+		int valor2 = (int)valor;
+		if(valor2<info)
+			return 1;
+		else if(valor2>info)
+			return -1;
+		
+		return 0;
+		
+	}
 
 }
