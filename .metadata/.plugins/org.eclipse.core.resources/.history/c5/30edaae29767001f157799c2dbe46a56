@@ -1,0 +1,14 @@
+package arboles;
+
+public class Node<integer> {
+	private Node<integer> izquierdo;
+	private Node<integer> derecho;
+	
+	private int key;
+	
+	public Node(int key,String info){
+		this.key = key;
+	}
+	
+	
+}

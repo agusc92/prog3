@@ -1,0 +1,82 @@
+package arboles;
+
+public class Tree {
+	private Node<Integer> raiz;
+	
+	public Tree() {
+		this.raiz = null;
+	}
+	
+	public int getRaiz() {
+		
+		return this.raiz.getKey();
+	}
+	
+	public boolean isEmpty() {
+		return this.raiz == null;
+			
+	}
+	
+	public void add(int key) {
+		if(this.raiz==null)
+			this.raiz = new Node<Integer>(key);
+		else {
+			this.add(this.raiz,key);
+		}		
+	}
+	
+	private void add(Node<Integer> nodoActual,int key) {
+		if(nodoActual.getKey() >key) {
+			if(nodoActual.getIzquierdo() == null) 
+				nodoActual.setIzquierdo(new Node<Integer>(key));
+			else
+				add(nodoActual.getIzquierdo(),key);
+		}else if(nodoActual.getKey()<key) {
+			if(nodoActual.getDerecho()==null)
+				nodoActual.setDerecho(new Node<Integer>(key));
+		}
+		
+	}
+	
+	public boolean hasElement(int key) {
+		return hasElement(this.raiz,key);
+	}
+	
+	private boolean hasElement(Node<Integer> nodoActual,int key) {
+		if(nodoActual == null)
+			return false;
+		if(nodoActual.getKey()>key) {
+			return hasElement(nodoActual.getIzquierdo(),key);
+		}else if(nodoActual.getKey()<key) {
+			return hasElement(nodoActual.getDerecho(),key);
+		}else {
+			return true;
+		}
+	}
+	
+	public int getHeight() {
+		int contador= 0;
+		int height =0;
+		return getHeight(this.raiz,contador,height);
+	}
+	
+	private int getHeight(Node<Integer> nodoActual) {
+		int altIzq = getHeight(nodoActual.getIzquierdo());
+		int altDer = getHeight(nodoActual.getDerecho());
+		int mayor = Math.max(altIzq, altDer);
+		
+//		if(nodoActual.getIzquierdo() != null) {
+//			contador++;
+//			getHeight(nodoActual.getIzquierdo(),contador,height);
+//		}else if(nodoActual.getDerecho() != null) {
+//			contador++;
+//			getHeight(nodoActual.getDerecho(),contador,height);
+//		}else {
+//			if(contador>height) {
+//						}
+//		}
+		
+		
+		return contador;
+	}
+}

@@ -1,0 +1,10 @@
+package tp2.recursividad;
+
+public class Convertir_a_binario {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}
