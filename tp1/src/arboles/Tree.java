@@ -86,4 +86,97 @@ public class Tree {
 		}
 		
 	}
+	
+	public void printPreOrder() {
+		printPreOrder(this.raiz);
+	}
+	
+	private void printPreOrder(Node<Integer> nodoActual) {
+		if(nodoActual == null) {
+			
+		}else {
+			System.out.println(nodoActual.getKey());
+			printPreOrder(nodoActual.getIzquierdo());
+			printPreOrder(nodoActual.getDerecho());
+		}
+	}
+	
+	public void printInOrder() {
+		printInOrder(this.raiz);
+	}
+	private void printInOrder(Node<Integer> nodoActual) {
+		if(nodoActual == null) {
+			
+		}else {
+			printInOrder(nodoActual.getIzquierdo());
+			System.out.println(nodoActual.getKey());
+			printInOrder(nodoActual.getDerecho());
+		}
+	}
+	
+	public void getLongestBranch() {
+		System.out.println(getLongestBranch(this.raiz));
+		
+	}
+	
+	private String getLongestBranch(Node<Integer> nodoActual) {
+		if(nodoActual != null){
+			String izq= getLongestBranch(nodoActual.getIzquierdo());
+			String der= getLongestBranch(nodoActual.getDerecho());
+			if(izq.length()>der.length()) {
+				return "->"+nodoActual.getKey()+izq;
+			}else {
+				return "->"+nodoActual.getKey() +  der;
+			}
+		}else {
+			return "";
+		}
+	}
+	
+	public void getFrontera() {
+		;
+		System.out.println(getFrontera(this.raiz));
+
+	}
+	/*private String getFrontera(Node<Integer> nodoActual) {
+		String izq = "";
+		String dere = "";
+		if(nodoActual.getIzquierdo()!=null || nodoActual.getDerecho()!=null) {		
+		
+		if(nodoActual.getIzquierdo()!=null) {
+			izq = getFrontera(nodoActual.getIzquierdo());
+		}
+		if(nodoActual.getDerecho()!=null) {
+			dere = getFrontera(nodoActual.getDerecho());
+		}
+		}else {
+			return ""+nodoActual.getKey();
+		}
+		
+		return izq + dere;
+	}*/
+	/*private int[] getFrontera(Node<Integer> nodoActual) {
+		int[] izq =null;
+		int[] dere ;
+		if(nodoActual.getIzquierdo()!=null || nodoActual.getDerecho()!=null) {		
+		
+		if(nodoActual.getIzquierdo()!=null) {
+			izq = getFrontera(nodoActual.getIzquierdo());
+		}
+		if(nodoActual.getDerecho()!=null) {
+			dere = getFrontera(nodoActual.getDerecho());
+		}
+		}else {
+			return new int[nodoActual.getKey()];
+		}
+		int[] result = new int[izq.length + dere.length];
+		System.arraycopy(izq, 0, result, 0, izq.length);
+		System.arraycopy(dere, 0, result, izq.length, dere.length);
+		return  result;
+	}
+	
+	private int[]  concatenarArray (int[] arr1,int[]arr2) {
+		int[] concat = new int[arr1.length + arr2.length];
+		if()
+	}*/
 }

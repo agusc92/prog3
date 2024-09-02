@@ -18,10 +18,10 @@ public class Node<Integer> {
 		return key;
 	}
 	
-	public Node getIzquierdo() {
+	public Node<Integer> getIzquierdo() {
 		return this.izquierdo;
 	}
-	public Node getDerecho() {
+	public Node<Integer> getDerecho() {
 		return this.derecho;
 	}
 	public void setIzquierdo(Node<Integer> nodo) {
