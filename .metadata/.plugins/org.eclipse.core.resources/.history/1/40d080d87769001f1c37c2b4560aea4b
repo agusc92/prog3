@@ -120,20 +120,17 @@ public class Tree {
 		System.out.println(getLongestBranch(this.raiz));
 		
 	}
-	private ArrayList<Integer> getLongestBranch(Node<Integer> nodoActual) {
-		
+	private String getLongestBranch(Node<Integer> nodoActual) {
 		if(nodoActual != null){
-			ArrayList<Integer> izquierda= getLongestBranch(nodoActual.getIzquierdo());
-			ArrayList<Integer> derecha = getLongestBranch(nodoActual.getDerecho());
-			if(izquierda.size()>derecha.size()) {
-				izquierda.add(0, nodoActual.getKey());
-				return izquierda;
+			String izq= getLongestBranch(nodoActual.getIzquierdo());
+			String der= getLongestBranch(nodoActual.getDerecho());
+			if(izq.length()>der.length()) {
+				return "->"+nodoActual.getKey()+izq;
 			}else {
-				derecha.add(0,nodoActual.getKey());
-				return derecha;
+				return "->"+nodoActual.getKey() +  der;
 			}
 		}else {
-			return new ArrayList<Integer>();
+			return "";
 		}
 	}
 	
@@ -158,23 +155,28 @@ public class Tree {
 		
 		return result;
 	}
-	
-	public int getMaxElement() {
-		return getMaxElement(this.raiz);
-	}
-	
-	private int getMaxElement(Node<Integer> nodoActual) {
-		if(nodoActual.getDerecho()==null)
-			return nodoActual.getKey();
-		else return getMaxElement(nodoActual.getDerecho());
-	}
-	
-	public ArrayList<Integer> getElementAtLevel(){
-		return getElementAtLevel(this.raiz);
-				}
-	private ArrayList<Integer> getElementAtLevel(Node<Integer> nodoActual){
-		ArrayList<Integer >result = new ArrayList<Integer>();
-		return result;
+	/*private int[] getFrontera(Node<Integer> nodoActual) {
+		int[] izq =null;
+		int[] dere ;
+		if(nodoActual.getIzquierdo()!=null || nodoActual.getDerecho()!=null) {		
 		
+		if(nodoActual.getIzquierdo()!=null) {
+			izq = getFrontera(nodoActual.getIzquierdo());
+		}
+		if(nodoActual.getDerecho()!=null) {
+			dere = getFrontera(nodoActual.getDerecho());
+		}
+		}else {
+			return new int[nodoActual.getKey()];
+		}
+		int[] result = new int[izq.length + dere.length];
+		System.arraycopy(izq, 0, result, 0, izq.length);
+		System.arraycopy(dere, 0, result, izq.length, dere.length);
+		return  result;
 	}
+	
+	private int[]  concatenarArray (int[] arr1,int[]arr2) {
+		int[] concat = new int[arr1.length + arr2.length];
+		if()
+	}*/
 }

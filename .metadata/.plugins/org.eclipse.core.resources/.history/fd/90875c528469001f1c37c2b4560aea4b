@@ -173,8 +173,7 @@ public class Tree {
 		return getElementAtLevel(this.raiz);
 				}
 	private ArrayList<Integer> getElementAtLevel(Node<Integer> nodoActual){
-		ArrayList<Integer >result = new ArrayList<Integer>();
-		return result;
+		
 		
 	}
 }

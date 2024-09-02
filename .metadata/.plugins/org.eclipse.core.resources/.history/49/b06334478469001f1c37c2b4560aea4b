@@ -168,13 +168,4 @@ public class Tree {
 			return nodoActual.getKey();
 		else return getMaxElement(nodoActual.getDerecho());
 	}
-	
-	public ArrayList<Integer> getElementAtLevel(){
-		return getElementAtLevel(this.raiz);
-				}
-	private ArrayList<Integer> getElementAtLevel(Node<Integer> nodoActual){
-		ArrayList<Integer >result = new ArrayList<Integer>();
-		return result;
-		
-	}
 }
