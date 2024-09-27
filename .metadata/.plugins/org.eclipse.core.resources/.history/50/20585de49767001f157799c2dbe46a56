@@ -1,9 +1,0 @@
-package arboles;
-
-public class Tree {
-	private Node raiz;
-	
-	public Tree() {
-		this.raiz = null;
-	}
-}
